@@ -1,0 +1,666 @@
+Kapitel 1
+OSI-Referenzmodell
+
+
+Standardrsierung :  vereinheitlichen Gremien die in anerkannte Art und Weise um etwas herzustellen oder duchzuführen
+
+ISO : International Organzisation for Standardsazation
+IEEE : Insitute of Electrical and Electronics Enginners
+
+
+Grundidee eine Modellabildung :
+- Defintion/zusammenfassung verschiedener Aufgabenbereiche in einer Schicht 
+- Schicht erbringt eine Dienst die drüber liegenden Schicht an einer genau definiertem Schnittstelle
+
+OSI-Referenzmodell Grundidee :
+Definition eines Achritiktur zur Struktierung eines Kommunikation zwischen 2 Systemen, die Funktionen werden zu schichten die in einer festen Reihenfolge durchlaufen werden
+
+Ziele des OSI-Ansatzes : 
+-Kommunikation zwischen beleibige Rechner die offen ist :
+     Herstellerunabhängig
+     Architikturunabhängig
+     Netzunabhängig
+-Behandlung der Datenaustasuch aber nicht der Datenverabritungaspekte
+-Grundidee : Gliederung des Systems in schichten mit wenigen definierten Aufgaben
+
+OSI-Modellierungsprinzipien :
+- OSI Basic Referenz Model :
+ beschreibt Basiselemente Basisstrukturen und Basismechanismen von offenen Systemen
+ beschreibt nicht im Detail Protokolle und Dienste
+
+
+OSI-Schichten :
+
+1-Bitsübertragung-Physical Layer (Bits)
+- ungesicherte Übertragung von Bitsströmen über ein Übertragungsmedium
+- Übertragungsarten
+- Abbildung der Digitalen Informationen (einzel Bits)
+- Synchranisation von Bitsströmen
+
+2- Leitung „Sicherungsschicht“- Data link layer (Rahmen-Frames)
+- Übertragung von Rahmen zwischen 2 oder mehrer Systemen
+- Adressieung von benachbarten Systemen (Hardware Adresse) hier wird für Geräte eine MacAdresse vergeben
+- Media Zugriffskontroll- Media Access Control
+-Fehlererkennung
+
+
+
+
+
+3- Netzwerkschicht(Vermittlungsschiht)-Network layer (Vermittlungspakete)
+- Übertragung von Paketen zwischen Endsysteme
+- Ende zu Ende Adressieung
+- Wegsucht-Routing
+
+4- Transportschicht- Transport layer 
+Transparenter Transport von Daten zwischen Anwendung auf Endsytemen
+
+5- Sitzungschicht - Sessionlayer 
+Bereitstellung von Diensten zur Sterueung des Ablaufs einer Kommunikationsbeziehung
+Steruerung der Eröffnung Durchführung und Beendiugng einer Kommunikationsbeziehung
+Authetifizierung und Autorisierung
+Sitzungsmanagment
+
+6-Darstellungsschicht-Presentaionslayer :
+Problemstellung : Daten sind  (Bilder,Fotos,Videos,Datum) all das werden unterschieldich kodiert daher -----> 
+Vereinbaren ein gemeinsamer Syntayx zum Datenaustausch zwischen Komminikationspartnern
+Datenkompression
+
+7- Anwendungschicht-Applicationlayer 
+Stellt Anwendung oder Dienst zur Verfügung
+Bsp :
+DHCP
+DNS
+FTP
+E-Mail
+
+Instanzen in einem System : 
+- Instanz, Entität
+- Aktives Element einer Schicht, das eine Menge von Fähigkeiten beinhaltet
+- Realisierung 
+Hardwar : LAN-Karte
+Software : 
+- Komminikation der Entiäten läuft immer und nur bei Schnittstellen der Schichten
+ein N-Enitity kommunziert nach Oben über N-SAP und nach Unten über N-1 SAP
+- Ausnahme : Entitäten der Schicht 7 (diese können untereinander direkt kommunzieren)
+Entitäen der schicht 1 sind ohne SAP an phyische Layer angebunden
+- Instanzen können mehrere SAPs der darüberliegenden Schicht nutzen
+-Instenzen können ihre Dienste an mehreren SAPs der darüber liegenden Schicht anbieten
+
+- Protokoll : definiert sich aus Regeln, für Syntax, Semantik und Timing des PDUS austausch
+
+
+
+
+
+
+
+
+
+
+Kapitel 2
+Übertragungsmedien und Verkabelungssysteme
+
+
+
+Welche Parameter sind zur Beschreibung eines Mediums wichtig ?
+- Laufzeit der Signale und auftretende Verzögerungen
+- Maximal übertragbare Datenrate
+- Leistungsverlust bei der Übertragung 
+
+
+Signallaufzeit :
+typische Signalausbreitunggeschwindigkeit in einem Kupfer-Kabel 0,6 c wobei 
+c = Lichtgeschwindikeit
+
+Delay : maximal zulässige Laufzeit eines Signals, normiet auf 100m kabellänge
+
+
+
+Wellnwiederstand
+- Charakterstische Größe eines Kabels, die durch Geometrie und Meterial des Kbelaufbaus bestimmt wird. ist kein Qualitätsmerkmal, sollte aber überall gleich sein
+- Änderungen des Wellenwiederstands führen zu Reflexionen des Signals
+- Um Refelxionen zu verhindern, müssen Kabel außerdem mit einem Widerstand in Größe des Wellenwiederstandes abgeschlossen werden
+
+Aufgabe : was passiert wenn versehentlich 2 Kabel mit verschiedenen Wellenwiederstande aneinenader angeschlossen werden ? 
+Es gibt Reflexionen, ein Teil des Signals wird zum Sender reflexiert
+
+NEXT : near end cross talk „Übersprechen“
+
+ACR : attenuation to cross talk ratio
+
+ACR = NEXT - a
+a = Dämpfung (Signalverlust)
+
+- Im ACR werden im Grunde das Überprechen (NEXT) und die Dämpfung zusammengefasst
+- Der ACR Wert sollte bei einem Kabel möglichst groß sein, beschreibt die Qualität eines Kabels
+
+
+Bandbreite : 
+-Frequenzbereich, der von einem Medium gut übertragen werden kann, ergibt sich aus der Differenz der höchsten und der niedrigsten Frequenz, die übertragen werden kann
+Das zu übertragende Signal und die Übertragungsleitung müssen zusammenpassen
+
+
+
+
+
+
+
+Kanalkapazität : Welche Datenmenge kann über eine Datenleitung übertragen werden ?
+
+Einflussfaktoren :
+- Bandbreite der Datenleitung
+- Art der Kodierung des digitalen Signals
+- Störung auf der Leitung 
+   1- Implussstörungen
+   2- Netzbrummen
+   3- Echobildung , Nebensprechen
+   4- weißes Rasuchen
+
+Anforderungen für Verkabelungssysteme :
+-Redundanzen in wichtigen Bereichen
+-Dokumentation der Verkabelung
+-Klare Struktierierung der Verkabelung
+
+
+Struktrierte Verkabelung : Struktierung durch Einteilung in Verkabelungsbereiche :
+- Primärbereich : 
+1- zwischen Gebäuden
+2- größere Entfernungen
+3- hohe Bandbreite
+4- hohe Datensicherheit
+
+-Sekundärbereich :
+1- Verkabelung zwischen den einzelnen Stockewerken
+
+-Teriärbereich : 
+1- Verkabelung der einzelnen Büros eines Stockwerks
+2- mittlers Datenaufkommen
+3- Überbrückung geriner Enrfernung
+
+
+
+
+Kapitel 3 
+Lokale Netze, Ethernet und WLAN
+
+
+
+
+LAN : Local Area Network 
+1- Ethernet : ist eine Kabelgebundene Übertragung  von Daten in lokalen Netze, mit dezentralem Medienzugriff und verschiedene Kabelvarianten
+2- WLAN : Wirless Local Area Network, ist ein drahtlose Übertragung von Daten in lokalen Netze, mit dezetralen stochastischen Medienzugriff und verschiedene Übertragungsarten.
+
+MAC : Media Access Control (Hardware Adresse)
+
+
+Medien-Zugriffsprotokoll bei Ethernt u. WLAN :
+
+- CSMA / CD : Carrier Sense Multiple Access / Collision Detection : ist Zugriffsverfahren bei Ethernet basiert auf dem gleichen Ansatz.
+Eigenschaften : nicht deterministich, keine garantierte Antwortzeit
+
+Wie funktioniert das CSMA / CD bei Ethernet  ?
+- Ethernet verwendet als Zugriffsverfahren CSMA / CD
+- Jede Station überwacht das Medium (carrier sensing, listen before talking) problem ist : „jeder hört mit“
+- bei freiem Medium sendet eine Station nach einer kurzen Wartezeit
+- Falls das Medium belegt ist, wartet die Station bis das Medium frei ist und beginnt nach einer zufälligen Zeit mit dem Senden
+- es kann passieren dass mehere Stationen gleichzeitig senden, dann kommt zu einer Kollision
+- daher wird das Medium auch während der Sendung weiter abgehört
+- ein Kollision wird vom Sender dadurch entdeckt, bei einer Kollision wird die Datenübertragung sofort abgebrochen und es wird ein spezielles Störsignal gesendet
+- nach der Sendung der Störsignal wird eine bestimmte Zeit + Zufallwartezeit gewartet und wieder gesendet
+
+-CSMA / CA : Carrier Sense Maultiple Access / Collision Avoidence : ist Zugriffsverfahren bei WLAN.
+
+wie funktioniert das CSMA / CA ?
+-Die Sendstation hört das Medium ab
+- ist das Medium frei? darf sie nach DIFS plus zufälliger Wartezeit senden
+- ist das Medium nicht frei ? wartet sie bis das Medium frei wird und sendet dann nach DIFS plus zufälliger wartezeit 
+- Der Empfänger bestätigt das Erhalten mit einem ACK. Nach erhalten der ACK ist die Datenübertragung abgeschlossen.
+
+wichtige Frage : wann treten Kollisionen auf ?
+- wenn zwei Stationen gleichzeitig zu senden beginnen, wenn sie z.b zufälligen wartezeit erhalten
+- danach wird die zufällige wartezeit verdopplet
+
+
+
+
+Kapitel 4 
+IPV4 
+
+
+
+IPV4 :
+IP : Internet Protocoll
+Netzmaske : gibt den Bereich der Netzadresse an
+CIDR : classless Inter Domain Routing 
+
+ARP :
+ARP :   Address Resolution Protocoll : dient zur Auflösung die IP-Adresse in MAC-Adresse
+DNS : IP-Adressen werden in Namen in Anwendungschicht aufgelöst
+
+wie funktioniert der ARP ?
+- Absender schickt eine ARP-Request an alle Rechner in lokalen Netz „Broadcast-Nachricht“
+- Rechner mit der IP-Addresse schickt eine ARP-Reply mit seiner MAC-Adresse
+- Absender schickt jetzt den Daten 
+- Absender speichert die MAC-Adresse in seinem ARP-Cache
+
+ICMP : Internet Control Message Protocoll
+- Dient zur Übermittlung von Fehler und Statusmeldungen 
+- Die ICMP Protokoll Informationen folgen direkt dem IP-Header
+- wichtige ICMP  Nachrichtentypen :
+  Ziel nicht erreichbar
+  Zeit überschreitung
+  Paramter Probleme
+
+
+DHCP : Dynamic Host Configuration Protocoll 
+
+
+
+Kapitel 5 : IPV6 
+
+128 Bit lang in Hexadezimal dargestellt 
+wegen Knappheit der IPV4 Adressen wurde entwicket
+
+Basisheader : der die wichtigste Inforamtionen über den Daten enthält und wird nur ausgewertet wo es benötigt wird.
+verketten Header : es gibt ein Basis Header (der wichtige Informationen über den Paket enthält) und dann kommen weitere Optionen daruter.
+
+IPV6 Typen :
+
+Unicast : bezeichnet nur ein Schnittstelle
+Multicast : bezeichnet mehrer Schnittstellen
+Anycast : bezeichnet auch mehrer aber kürzet Pfad
+
+Unicast-Typen ;
+
+a ) Globale : wird vom Zufallsverfahren generiet RFC und kann auch von MAC-Adresse abgleiten werden "EUI64 " Ectendecx Unique Identifer" 
+
+Schritten von Mac 48 zu IPV6 64 Präfix als Gloabl nach EUI-64:
+
+1- FF FE in der mitte hinzufügen als in 24 
+2- vorletzen Bit in der erste Okttet umwandeln
+3- Präfix hinschreiben
+
+b ) Lokale : fängt immer mit FE80 an
+hat zwei Arten :
+
+1- Verbindungslokal Unicast Adressen 
+beginnen mit FE80 und werden immer automatisch konfiguriert
+2- Standortlokla Unicast Adresse :
+werden nicht automatisch konfigueriert !
+
+
+lokale Ipv6 von Mac-Adresse zu IPV6 generien :
+
+- FE80 hinzufügen
+- FF-FE in der Mitte
+- vorletze Bit umwandeln
+- /64 hinschreiben
+
+Spezielle IPV6 Adressen :
+
+1- nicht spezifizierte Adresse (0:0:0:0:0:0:0:0 oder ::)
+ zeigt an dass keine Adresse vorhanden ist
+ wird niemals zugewiesen oder als Zieladresse verwendet
+
+2- Loopback-Adresse : ( 0:0:0:0: oder ::1)
+kennezeichnet eine Loopbackschnittstelle, pakete an sich schicken
+wird niemals an Router weitergeleitet
+entspricht 127.0.0.1
+Kapitel 6 LAN-Komponente 
+
+
+Netztopologie :
+-vollvermaschtes Netz
+- teilvermaschtes Netz 
+- Baum
+- Bus
+- Sterntopologie
+- einfacher gerichterterring
+- doppelter gegenläufiger Ring
+
+Repeater : Hub
+arbeitet auf schicht 1 auf OSI 
+taktgerichtete Signalgenerierung
+Abtrennung fehlerhafte Kabelsegmente
+aber Kollisionen werden nicht abgetrennt
+
+Switch : ein Switch ist eine Netztkompnente der auf OSI Schicht2 Leitung arbeitet 
+Lasttrennung durch Frame Filterung „CRC Prüfung“
+Auftrennung von Kollisionendomäne 
+Transparenz des Switch für die angeschlossenen Stationen
+Weiterleitung von Broadcast und Multicast Nachrichten (Broadcast Domäne)
+Brücke zwischen die Geräte im LAN 
+Unterstuzung redundanter Netzwerkpfade (Spanning Tree Protokoll)
+
+
+Cut-Through Switching : ist ein Switch methode dass keine Fehlerüberprufung es reicht die Mac-Zieladresse auszuwerten „weiterleiten“
+
+VLAN : ist ein lokale LAN, der nicht hardwaremäßig sondern auf logische Ebene definiert ist.
+also mehrere LANs unter ein VLAN um lokalenetze zu sparen
+vorteile : 
+flexibilität bei der Integration von Endegeräten in die Netzwerkinfrastruktur
+Sicherheitsaspekte
+Portbasiert VLANs (mehrere LAN können in einem VLAN-Switch verbunden werden und als LAN definiert )
+
+STP : Spanning Tree Protocoll 
+unterdrückung von Schleifen durch Deaktivierung von Verbindungen(Ports)
+schritt 1 : bestimung einer Root-Bridge. Brücke mit niedrigster Bridge-ID gewinnt
+schritt 2 : bestimmung ein Root-Port für jede Bridge „kleine pfaden“  zu root bridge
+schritt 3 : bestimmung der designierten Ports : alle ports außer root-Ports auswählen mit kurzren pfad 
+schritt 4 : blockieren aller ports, außer Root-Ports und designierten Port sind
+
+
+
+
+
+Kapitel 7- Router
+
+
+
+Router :
+arbeitet auf Schicht 3
+hat die Aufgabe Routing "Wegsuche"
+Die Entscheidung an welche  die Paket geleitet wird, wird anhand einer Routingtabelle durchgeführt
+Eine Routingtabelle enthält die Ip-Adressen die zugeordneter Interfaces
+Router begrenzen die Broadcast Domöne "also Brodcast Domöne gehen bis zu dem Router"
+
+Komponentet eines Router :
+CPU
+ROM
+RAM
+
+Konfiguration eine Routers :
+1- Interfaces Konfiguration
+IP-Adresse
+IP-Netzadresse mit Netzmaske
+Routing Protokolle
+
+2- Routingprotokolle Konfiguration
+Routing Protokolle :
+
+Autonomus System : ist ein System von Routern innerhalb einer Firma oder Organisation
+
+Internes Routing : Routing innerhalb eines Autonomes System, kann statisch oder dynamisch konfiguriert werden
+
+Externes Routing : Routing zwischen verschiedene Autonomes System, immer auf Basis von Routing Protokollen
+
+Wichtig Protokolle :
+RIP : Routing Information Protocoll
+OSPF : Open Shortest Path First
+IGRP : Interior Gateway Routing Protocol
+
+Wann und Wo werden die Routing-Protokollinformationen übertragen ?
+Die Routinginformationen werden in regelemäßigen zeitlichen Abständen über die gleichen Interfaces und Netzverbindungen übertragen wie die Nutzdaten, quasi im Hintergrund.
+
+Link State Routing : 
+kernstück des Link State Routing ist die "Nachbarschafterkundung" benachbarte Router tauschen Keepalives Nachrichten sogenannte Hello Nachrichten aus.
+LSA : Link State Advertisments : Das sind die Informationen über den Status und die Kosten der Verbindungen zu den direkten Nachbarn, diese LSA werden an alle Router im Netz verteilt
+LSA enthält :
+- Quelladresse
+- Sequenznummer 
+- Zeitmarke
+- Liste der direkte Nachbarn
+
+Ablauf der Link State Routing :
+Ermittlung der Nachbarn "Keepalives"
+Bestimmung der Übertragungsbandbreite / Kosten zu den Nachbarn
+LSA zusammenstellen und an alle Router verteilen
+Nach Empfang der LSAs unter Verwendung des Dijkstras Algorithmus den kürzesten Pfad zu allen Routern
+
+
+Kapitel 8 TCP / UDP 
+
+
+TCP : 
+- verbindungsorientiert ( richtige Reihenfolge, keine Duplikate, vollständig übermittlung)
+- zuverlässige Protkoll
+- korrekte Reihenfolge der Daten
+- Flusskontrolle (Flow Control)
+- Überlastungsknotrolle (Congestion Control)
+
+UDP : 
+- verbindungslos
+- schnörkellose Erweiterung des „best offert“ von IP 
+
+Addressierungsarten :
+- IP-Addresse
+- Mac-Adresse 
+- Ports 
+
+TCP : bietet eine zuverlässige, verbindungsorientierte Service zur Übertragung von Byte-Strom unter Beachtung der aktuellen Lastsituation
+
+
+Automatic Repeat Request (ARQ) :
+strategie zur Erkennung und Korrektur des Verlusts ganzer Nachrichten 
+
+1-  SENDER fordert vom Empfänger eine Bestätigung (ACK) dass die Daten korrekt empfangen wurden
+2- kommt nach Ablauf eines Timeouts keine Bestätigung, wird das Paket erneut gesendet 
+
+Stop and Wait : sender schickt ein Paket zu Empfänger, und wartet bis eine ACK kommt, Sender wartet eine bestimmte Zeit bis er nochmal schickt.
+// aber das ist uneiffizienz
+
+Sliding Window : der Sender darf nicht nur ein Segment versenden sondern N, bevor er die ACK erwartet, Segmente werden nummieriert und entsteht ein WINDOW, solange ein Segment bestätigt wird verschiebt sich Anfang und Ende des Window.
+
+Wie geht man mit Übertragungsfehlern um ?
+
+GO-BACK-N :
+Empfänger : wenn ein Segment mit Sequenznummer n empfangen wird und die Reihenfolge korrekt ist, sende ein ACK(n)
+sollte eine flasche Sequenznummer eintreffen (n+2), sende weiterhin ACKSs mit n bis n+1 eintrifft
+
+Selective Repeat : 
+Empfänger : individuelle Bestätigung der Segmente, selbst wenn diese in falscher Reihenfolge eintreffen
+Empfangspuffer , um auf fehlende Lücken warten zu können.
+
+
+
+Selective Repeat / Go back N erläutern : 
+Selective Repeat:
+Es wird nur das fehlende oder fehlerhafte Paket erneut gesendet. Alle
+nachfolgenden, bereits gesendeten werden beim Empfänger
+zwischengespeichert.
+Go back N:
+Ab dem fehlenden oder fehlerhaften Paket werden nochmals alle Pakete
+gesendet. Nach einem fehlerhaft empfangenen werden alle Pakete verworfen
+und nicht zwischengespeichert
+
+Welches ARQ Verfahren ist am effizientesten?
+Selective Repeat: Es werden nur fehlerhafte Pakete wiederholt
+
+
+
+Kapitel 9 TCP Congestion / Flow Control , Quic
+
+
+
+Flow Control : Sender schickt zu viele schnelle Daten für Empfänger
+Lösung : Empfänger teilt dem Sender den freien Speicher im Buffer mit.
+
+Congestion Control : viele Sender schicken zu viele schnelle Daten für Empfänger und überlasten das Netzwerk 
+Lösung :  AIMD (Additive Increase Multiplicative Decrease) : Sender erhöhen die Paketrate sukzessive und verringern diese im Fall von Paketverlusten
+1- Additive Increase : erhöhen die Anzahl an zu übertragenen Daten
+2- Multiplicative Decrease : habliere /2 die Anzahl von übertragene Daten im Fall von Verlusten
+
+TCP Slow Start : sender startet mit dem Transfer des ersten Datensegments und wartet dann auf die zugehörige Quittung. dann werden verdoppelt wenn Empfänger ACK schickt.
+
+
+QUIC : bietet die gleichen Sevices wie TCP (zuverlässig, flow Control, Congestion Control)
+ABER : 
+1- QUIC läuft inder Anwendung (user-space) nicht im Betriebsystem (kern-space)
+2- QUIC nutzt UDP zur Übertragung.
+Kapitel 10 Angriff auf TCP / UDP
+
+
+Sicherheitsziele :
+1- Inegrität : die Echtheit und genauigkeit von Daten 
+2- Vertraulichkeit : gewährleistet dass nur befugte Personen die Nachricht lesen können
+3- Verfügbarkeit : gewährleistet dass Benututzer jederzeit oder auf Anfrage Informationen bereitegestellt werden
+
+Computer-Netzwerke Angriff :
+1- Spoofing : Angreifer gibt sich als gefälschte Identiät aus um Vorteile ausnutzen
+2- MIM : Man in the Middle : Angreifer hört den Datenverkehr / Kanal ab und nutzt die aus 
+3- DOS / DDOS : Denial of Serive / Distributed Denial of Service : zu viele Anfragen auf Ziel schiken um den zu überflotten 
+
+a) Dos Angriff auf Bandbreite : mehr Datenverkehr auf dem Router erzeugen mehr als dieser verkraften kann 
+b) Dos auf Ressourcen : Mehr Daten auf bestimmte Software oder das gesmate Betribsystem eines Hosts zum Absturz bringen 
+
+
+DDOS Angriffe via UDP :
+1- Reflection Angriffe : 
+- Der Angreifer sendet ein Paket via IP/UDP mit der Adresse des Opfers als gefälschte Abesender-IP-Adresse an einen Dienst der auf einem Netzwerk server läuft.
+- Der Server antwortet auf die Anfrage und sendet diese ans Opfer weiter 
+2- Amplification Angriff : 
+- eine besondere Art von Reflection
+- eine kleine Anfrage (Payload) des Angreifers führt zu einer großen Antweort des Reflectors
+
+DDOS Angriffe via TCP : 
+
+SYN-Flood : über die 3 way handshake :
+Angreifer schickt eine Anfrage an Server (SYN)
+Server antwortet mit einem SYN-ACK und wartet auf die Bestätigung (ACK)
+Angreifer schickt keine ACK, sondern viele weitere SYN, so wird die SYN-Queue überflottet 
+
+RST(Reset) : Angreifer schickt mit geeälschter Daten und gefälschte Paket (sequenznummer, portnummer, Adresse) gefälschte RST an Server.
+so wird die Verbindung zwischen Opfer und Server abgebrochen 
+Kapitel 11 TLS & HTTP
+
+
+Kryptographische Verfahren : 
+
+1- Verschlüsselung : Nachrichten vor Dritten geheimhalten.
+a- Symmetrische Verschlüsselung : hier wird ein identsicher Schlüssel für Verschlüsselung und Entschlüsselung verwendet (Block Verschlüssselung, Stromverschlüsselung)
+b- Asymmetrische Verschlüsselung : hier wird 2 Schlüsseln verwendet für Verschlüsselung und Entschlüsselung (Privater Schlüssel und Öffentlicher Schlüssel) bsp (OTP Verschlüsselung)
+
+Signaturen : Daten einer Entität eindeutig zuordnen, verwenden asymmetrische Verschlüsselung
+
+
+SSL : Socket Secure Layer : wurde bei Netscape entwickelt, um die Sicherheit von E-Commerce Trasaktionen im Web zu ermöglichen.
+
+TLS : Transport Layer Security , ist der neue Version von SSL.
+- TLS ist auf der Anwendungsschicht implementiert und setzt direkt auf TCP.
+- Darüber liegende Protokoll (HTTP) 
+- TLS bietet : Verschlüsselung, Authetifizierung, Integrität
+- Für UDP existiert eine Variante namens Datagram Transport Layer Security (DTLS)
+
+TLS Simplifiziert :
+- Tls nutzt symmetrische und Asymmetische Verschlüsselung 
+- Um eine sichere Datenverbindung aufzubauen, müssen Client und Server sich einigen welche  
+   kryptografischen Verfahren verwendet wird.
+- TLS nutzt dazu eine Handshake Protokoll 
+ Handshake Protokoll ist die gegenseitige Authentifizierung :
+1- Client baut Verbindung zum Server auf
+2- Server authentifiziert sich mit einem Zertifikat
+3- Client überpruft die Vertrauenwürdigkeit des Zertifikats und ob der Servername stimmt
+4- Optional kann sich der Client authentifizieren
+
+TLS Protokoll Familie :
+- Handshake Protokoll :
+   Atuhentifizierung, Generierung des Master Secrets, Aushandlung von Cipher Suite
+- ChangeCipherSpec Protokoll : 
+    Aktivierung der Cipher suite
+- Alert Protokoll :
+   Mitteilung von Fehlern und unerwarteten Verhalten 
+- Rekord Protokoll :
+   kapselt die Daten sowohl Anwendung andere TLS Protokolle, bietet fragmentierung Integrität und Vershlüsselung 
+
+Digitale Zeritifikate :
+Ein digitales Zertifikate bindet öffentlichen Schlüssel mit einem Merkmal einer Entität durch die Signatur einer Vertrauenwürdigen dritten Entität 
+
+Zertifizierungsstellen und PKI :
+woher bekomme ich ein Zertifikate ?
+Certfification Autherity (CA) stellen Zertifikate aus
+Authentifizierung über Zertifikate : Chain of trust 
+Inder Praxis wäre es unpraktische jedes einzelnes Zertifikat für jede Website zu speichern 
+lösung : Chain of trust 
+
+- vertrauren muss ich nur die Zertifikate der Root CA
+- Root CA Zeritfikate sind in einem Betriebsystem/Browser vorinstalliert
+
+HTTP : Hypertext Transfer Protocol 
+ist zustandsloses Protokoll zur Übertragung von Daten auf der Anwendungsschicht, es wird haupsächtlich eingesetzt, um Websiten (Hypertext Dokumente) aus dem World Wide Web in einen Werbbrowser zu laden.
+
+HTTP : 
+Request ---> Response Protokoll 
+HTTP ist n zustandloses Protokoll 
+Typische Ablauf einer einfachen HTTP-Kommunikation :
+1- Client (Browser) stellt ein Request
+2- Server beantwortet das Request mit einer Response 
+3- Client interpretiert die Response bsp anzeigen der HTML Datei
+
+Catching im Browser : 
+Ziel : reduziere die Daten die der Client beim Server anfragen muss, dadurch schnellers Anzeigen der Website.
+
+Cookies :
+da Http zustandloses Protokoll ist, wurden Cookies entwickelt weil viele Anwendungen brauchen Session (Work-shop, E-commerce)
+idee : 
+- Serv gibt Client ein Cookies
+- Client Request enthalten diesen Cookie
+- Server kann den Client identifizieren
+
+
+
+
+
+
+
+
+
+Kapitel 12 
+Autokonfiguration 
+
+
+
+Netzwerkgeräte benötigen Konfigurationen  :
+wie z.b 
+IP Adresse
+DNS Server Adresse 
+Default Router 
+
+
+Verfahren zur Autokonfiguration :
+
+IPV4 :
+1- Bootstrap Protocol (veraltet)
+2- Dnamic Host Configuration Protcol (DHCPv4) : standard in nahezu allen Netzgeräte
+- Ein DCHPv4 Server verteilt IP-Adressen (und weiterre Konfiguration)
+
+Ablauf von DHCPv4 :
+Client : DHCP Discover
+Server : DHCP Offer
+Client : DHCP Request
+Server :DHCP ACK
+
+IPV6 :
+1- Statless Adress Autoconfiguration (SLAAC)
+- Client genierte eigene IPV6
+- es wird kein Server benötigt
+2- DHCP 
+-  Pendant zu DHCPv4 für IPV6
+- SLAAC und DHCPv6 in Kombination
+
+Ablauf von SLAAC „stateless Autoconfiguration“
+1- erzeugen ein lokale IPV6 Adresse 
+2- Aufspüren von Router in lokalen Netz
+3- Router verteilt Präfixe an alle Geräte 
+
+NAT : Network Address Translation 
+
+
+DNS : Domain Name System 
+löst IP-Adressen in Namen auf „Menschen merken sich keine Nummer sondern Namen“
+
+Domain Name Struktur :
+1- TLD : Toplevel Domain : com , de
+2- Second Domain :  facebook
+3- Subdomain : www
+
+Typen von DNS Server 
+1- autorativer Namenserver : gibt gesicherte Antworten für Domainanfragen einer Zone (root Namenserver, TLD, primary und secondary)
+2- nicht-autorativer Namenserver : resursive resolver, DNS Informatinen aus zweiter oder dritter Hand.
+Kapitel 13 SDN / NFV 
+
+
+
+SDN : Software Defined Networking 
+
+
